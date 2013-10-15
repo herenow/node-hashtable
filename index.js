@@ -23,6 +23,7 @@ if (cluster.isMaster) {
             (function wait_exchange_server() {
                 if(server.port() !== 0) {
                     worker.send({
+                        hashtable_msg: 1,
                         port: server.port(),
                         host: server.host()
                     });
@@ -35,6 +36,8 @@ if (cluster.isMaster) {
 }
 else if (cluster.isWorker) {
     process.on('message', function(data) {
-        client(data.port, data.host);
+        if(data && data.hashtable_msg) {
+            client(data.port, data.host);
+        }
     })
 }
