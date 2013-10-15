@@ -4,24 +4,29 @@ var hashTable = require("./hashtable.js");
 
 var client;
 
+var callback = [];
+
+
 module.exports = function _client(_port, _host) {
  
-    var client = net.connect({port: _port, host: _host}, function() {
+    client = net.connect({port: _port, host: _host}, function() {
 
         console.log("Connected to hashtable server.");
         
     });
     
-    client.on("data", function (data) {
+    client.on("data", function (json) {
        
-       data = JSON.parse(data);
+       json = JSON.parse(json);
        
-       console.log("Server -> ");
-       console.log(data);
+       if(callback[json._id]) {
+            callback[json._id](json.data);
+            callback[json._id] = null;
+       }
         
     });
     
-}
+};
 
 
 /* Dynamic */
@@ -30,13 +35,25 @@ var exchange = [];
 
 function create_fnc(verb) {
     
-    return function(key, data) {
+    return function(key, data, fnc) {
         
-        var data = {};
+        var _id = Math.random() + new Date().getTime();
+        var json = {};
         
-        data[verb] = [key, data]
+        if(typeof data === "function") {
+            fnc = data;
+            json[verb] = { _id: _id, args: [key] };
+        }
+        else if(data) {
+            json[verb] = { _id: _id, args: [key, data] };
+        }
+        else {
+            json[verb] = { _id: _id, args: [key] };
+        }
+
+        callback[_id] = fnc;
         
-        client.write(JSON.stringify(data)); 
+        client.write(JSON.stringify(json));
         
     };
     
