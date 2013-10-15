@@ -6,12 +6,18 @@ var host = "localhost";
 
 var hashTable = require('./hashtable.js');
 
+var client = require("./client.js");
+
+module.exports = client.exchange;
 
 if (cluster.isMaster) {
+        /* If he is master, dont need to access throught client */
+        //module.exports = hashTable;
     
         /* Test childs */
+        var workers = [];
         for (var i = 0; i < 4; i++) {
-            cluster.fork();
+            workers.push(cluster.fork());
         }
 
         cluster.on('exit', function(worker, code, signal) {
@@ -39,26 +45,24 @@ if (cluster.isMaster) {
             });
             
         });
-
-        
         
         server.on("listening", function() {
             
             port = server.address().port;
             
+            for(var i in workers) {
+                workers[i].send(port);
+            }
+            
         });
         
         server.listen(port, host);
-       
 }
-
-
-function client_open() {
-    if(port === 0)
-        setTimeout(client_open, 100);
-    else
-        require("./client.js")(port, host);
-}
-client_open();
+else {
+    //module.exports = client.exchange;
     
+    process.on('message', function(port) {
+        client(port, host);
+    })
+}
     

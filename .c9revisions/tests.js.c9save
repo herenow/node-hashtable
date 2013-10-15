@@ -1,0 +1,11 @@
+{"ts":1381806285411,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1381806295073,"patch":[[{"diffs":[[1,"var module = require(\"index.js\");"]],"start1":0,"start2":0,"length1":0,"length2":33}]],"length":33,"saved":false}
+{"ts":1381806300245,"patch":[[{"diffs":[[0,"ex.js\");"],[1,"\n\nconsole.log(module)l"]],"start1":25,"start2":25,"length1":8,"length2":30}]],"length":55,"saved":false}
+{"ts":1381806301510,"patch":[[{"diffs":[[0,"(module)"],[-1,"l"]],"start1":46,"start2":46,"length1":9,"length2":8}]],"length":54,"saved":false}
+{"ts":1381806303714,"patch":[[{"diffs":[[0,"(module)"],[1,";"]],"start1":46,"start2":46,"length1":8,"length2":9}]],"length":55,"saved":false}
+{"ts":1381806309017,"patch":[[{"diffs":[[0,"var "],[-1,"modu"],[1,"hashtab"],[0,"le = req"]],"start1":0,"start2":0,"length1":16,"length2":19}]],"length":58,"saved":false}
+{"ts":1381806310494,"patch":[[{"diffs":[[0,"log("],[-1,"modu"],[1,"hashtab"],[0,"le);"]],"start1":46,"start2":46,"length1":12,"length2":15}]],"length":61,"saved":false}
+{"ts":1381806468506,"patch":[[{"diffs":[[0,"equire(\""],[1,"./"],[0,"index.js"]],"start1":17,"start2":17,"length1":16,"length2":18}]],"length":63,"saved":false}
+{"ts":1381806583733,"patch":[[{"diffs":[[0,"ashtable"],[1,"()"],[0,");"]],"start1":53,"start2":53,"length1":10,"length2":12}]],"length":65,"saved":false}
+{"ts":1381807528140,"patch":[[{"diffs":[[0,"able"],[-1,"())"],[0,";"]],"start1":57,"start2":57,"length1":8,"length2":5}]],"length":62,"saved":false}
+{"ts":1381807530669,"patch":[[{"diffs":[[0,"ashtable"],[1,")"],[0,";"]],"start1":53,"start2":53,"length1":9,"length2":10}]],"length":63,"saved":false}
