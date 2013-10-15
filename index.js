@@ -16,9 +16,6 @@ if (cluster.isMaster) {
         /* Create the exchange server */
         var server = net.createServer(function(c) {
             
-            console.log('Client connected');
-            
-            
             c.on("data", function(data){
                 
                 data = JSON.parse(data);

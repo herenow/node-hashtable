@@ -9,11 +9,7 @@ var callback = [];
 
 module.exports = function _client(_port, _host) {
  
-    client = net.connect({port: _port, host: _host}, function() {
-
-        console.log("Connected to hashtable server.");
-        
-    });
+    client = net.connect({port: _port, host: _host});
     
     client.on("data", function (json) {
        
