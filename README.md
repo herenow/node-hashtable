@@ -1,4 +1,4 @@
-node-hashtable (UNDER DEVELOPMENT)
+node-hashtable
 =========
 
 A simple hashtable written in node (not meant for production).
