@@ -23,7 +23,7 @@ module.exports = function _client(_port, _host) {
             callback[json._id](json.data);
             callback[json._id] = null;
        }
-        
+
     });
     
 };

@@ -38,3 +38,6 @@
 {"ts":1381814559485,"patch":[[{"diffs":[[0,"ter\");\n\n"],[1,"var numCPUs = require('os').cpus().length;\n\n"],[0,"if (clus"]],"start1":67,"start2":67,"length1":16,"length2":60}]],"length":405,"saved":false}
 {"ts":1381814561054,"patch":[[{"diffs":[[0,"ength;\n\n"],[1,"\n\n"],[0,"if (clus"]],"start1":111,"start2":111,"length1":16,"length2":18}]],"length":407,"saved":false}
 {"ts":1381814563531,"patch":[[{"diffs":[[0,"  }\n}\n\n\n"],[1,"\n"],[0,"setInter"]],"start1":232,"start2":232,"length1":16,"length2":17}]],"length":408,"saved":false}
+{"ts":1381817329798,"patch":[[{"diffs":[[0,"ion "],[-1,"test2"],[1,"stack"],[0,"(dat"]],"start1":297,"start2":297,"length1":13,"length2":13}]],"length":408,"saved":false}
+{"ts":1381817367365,"patch":[[{"diffs":[[0,";\n    }\n"],[1,"    \n    hashtable.set(\"key\", \"Yello\");\n\n"],[0,"}\n\n\n\nset"]],"start1":228,"start2":228,"length1":16,"length2":57}]],"length":449,"saved":false}
+{"ts":1381817385327,"patch":[[{"diffs":[[0,"i < numC"],[-1,"pu"],[1,"PU"],[0,"s; i++) "]],"start1":186,"start2":186,"length1":18,"length2":18}]],"length":449,"saved":false}
