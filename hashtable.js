@@ -46,7 +46,14 @@ module.exports = {
         var timestamp = new Date().getTime();
         var random = Math.random();
         var secret = timestamp + random;
-        var string = JSON.stringify(data) + secret;
+        var string = "";
+        
+        if(data) {
+            string = JSON.stringify(data) + secret;
+        }
+        else {
+            string = secret.toString();
+        }
         
         return crypto.createHash('sha256').update(string).digest('base64');
     },

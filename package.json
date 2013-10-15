@@ -1,0 +1,32 @@
+{
+  "name": "node-hashtable",
+  "description": "This is a simple hashtable, all written in node, to help you access and store your data over multiple workers or modules. It will provide the abstraction to access it through workers (cluster).",
+  "version": "0.1.0",
+  "author": {
+    "email": "leonardoshiro@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/herenow/node-hashtable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/herenow/node-hashtable/issues"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "nssocket": "*"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+   "keywords": [
+    "hashtable",
+    "cluster",
+    "module",
+    "worker",
+    "API",
+    "node",
+    "hash-table",
+    "simple"
+  ]
+}

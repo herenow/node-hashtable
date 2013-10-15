@@ -8,57 +8,33 @@ var hashTable = require('./hashtable.js');
 
 var client = require("./client.js");
 
+var server = require("./server.js");
+
+
+module.exports = client.exchange;
+
 
 if (cluster.isMaster) {
-        /* If he is master, dont need to access throught client */
-        module.exports = hashTable;
-    
-        /* Create the exchange server */
-        var server = net.createServer(function(c) {
-            
-            c.on("data", function(data){
-                
-                data = JSON.parse(data);
-                
-                for(var prop in data) {
-                    
-                    var json = {
-                        _id: data[prop]._id,
-                        data: hashTable[prop].apply(undefined, data[prop].args) || null
-                    }
-
-                    c.write(JSON.stringify(json));
+        /* If he is master, dont need to access throught data throught socket */
+        client.master(1);
         
-                }
-                
-            });
-            
-        });
-        
+        /* Connect workers client to server */
         cluster.on('online', function(worker) {
             (function wait_exchange_server() {
-                if(port !== 0) {
-                    worker.send(port);
+                if(server.port() !== 0) {
+                    worker.send({
+                        port: server.port(),
+                        host: server.host()
+                    });
                 }
                 else {
                     setTimeout(function() { wait_exchange_server() }, 100);
                 }
             })();
         });
-        
-        server.on("listening", function() {
-            
-            port = server.address().port;
-            
-        });
-        
-        server.listen(port, host);
 }
 else if (cluster.isWorker) {
-    /* Special exchange service to get to main hashtable worker */
-    module.exports = client.exchange;
-    
-    process.on('message', function(port) {
-        client(port, host);
+    process.on('message', function(data) {
+        client(data.port, data.host);
     })
 }
