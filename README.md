@@ -4,13 +4,20 @@ node-hashtable
 A simple hashtable written in node (not meant for production).
 It will help you share data over your node clusters or modules.
 
+**Under development**
+
+**TODO:**
+* Redesign
+* IPC implementation
+* Implement a binary storage system
+* Decide if i should use protocol buffers, capn or roll my own
+
 
 Installation
 ----------
 ```
 npm install node-hashtable
 ```
-
 
 Example
 ----------
@@ -127,6 +134,6 @@ hashTable.createKey(function(){
 });
 ```
 
-Thank you 
+Thank you
 ----------
 - Nodejistu/nssocket for providing the socket middleware
